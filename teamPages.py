@@ -1,0 +1,35 @@
+#! /usr/bin/env python3 
+# teamPage.py holds a dictionary with the teams as keys and the URL of their home 
+# page on mlb.com as the values.
+teamPage = {
+    'WHITE SOX': 'https://www.mlb.com/whitesox',
+    'INDIANS': 'https://www.mlb.com/indians',
+    'TIGERS': 'https://www.mlb.com/tigers',
+    'ROYALS': 'https://www.mlb.com/royals',
+    'TWINS': 'https://www.mlb.com/twins',
+    'ORIOLES': 'https://www.mlb.com/orioles',
+    'RED SOX': 'https://www.mlb.com/redsox',
+    'YANKEES': 'https://www.mlb.com/yankees',
+    'RAYS': 'https://www.mlb.com/rays',
+    'BLUE JAYS': 'https://www.mlb.com/bluejays',
+    'ASTROS': 'https://www.mlb.com/astros',
+    'ANGELS': 'https://www.mlb.com/angels',
+    'ATHLETICS': 'https://www.mlb.com/athletics',
+    'MARINERS': 'https://www.mlb.com/mariners',
+    'RANGERS': 'https://www.mlb.com/rangers',
+    'CUBS': 'https://www.mlb.com/cubs',
+    'REDS': 'https://www.mlb.com/reds',
+    'BREWERS': 'https://www.mlb.com/brewers',
+    'PIRATES': 'https://www.mlb.com/pirates',
+    'CARDINALS': 'https://www.mlb.com/cardinals',
+    'BRAVES': 'https://www.mlb.com/braves',
+    'MARLINS': 'https://www.mlb.com/marlins',
+    'METS': 'https://www.mlb.com/mets',
+    'PHILLIES': 'https://www.mlb.com/phillies',
+    'NATIONALS': 'https://www.mlb.com/nationals',
+    'DIAMONDBACKS': 'https://www.mlb.com/dbacks',
+    'ROCKIES': 'https://www.mlb.com/rockies',
+    'DODGERS': 'https://www.mlb.com/dodgers',
+    'PADRES': 'https://www.mlb.com/padres',
+    'GIANTS': 'https://www.mlb.com/giants'
+}

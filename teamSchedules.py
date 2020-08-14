@@ -1,0 +1,35 @@
+#! /usr/bin/env python3 
+# teamSchedules.py holds a dictionary with the teams as the keys and a URL of their scheule
+# as the values.
+teamSchedule = {
+    'WHITE SOX': 'https://www.cbssports.com/mlb/teams/CHW/chicago-white-sox/schedule/',
+    'INDIANS': 'https://www.cbssports.com/mlb/teams/CLE/cleveland-indians/schedule/',
+    'TIGERS': 'https://www.cbssports.com/mlb/teams/DET/detroit-tigers/schedule/',
+    'ROYALS': 'https://www.cbssports.com/mlb/teams/KC/kansas-city-royals/schedule/',
+    'TWINS': 'https://www.cbssports.com/mlb/teams/MIN/minnesota-twins/schedule/',
+    'ORIOLES': 'https://www.cbssports.com/mlb/teams/BAL/baltimore-orioles/schedule/',
+    'RED SOX': 'https://www.cbssports.com/mlb/teams/BOS/boston-red-sox/schedule/',
+    'YANKEES': 'https://www.cbssports.com/mlb/teams/NYY/new-york-yankees/schedule/',
+    'RAYS': 'https://www.cbssports.com/mlb/teams/TB/tampa-bay-rays/schedule/',
+    'BLUE JAYS': 'https://www.cbssports.com/mlb/teams/TOR/toronto-blue-jays/schedule/',
+    'ASTROS': 'https://www.cbssports.com/mlb/teams/HOU/houston-astros/schedule/',
+    'ANGELS': 'https://www.cbssports.com/mlb/teams/LAA/los-angeles-angels/schedule/',
+    'ATHLETICS': 'https://www.cbssports.com/mlb/teams/OAK/oakland-athletics/schedule/',
+    'MARINERS': 'https://www.cbssports.com/mlb/teams/SEA/seattle-mariners/schedule/',
+    'RANGERS': 'https://www.cbssports.com/mlb/teams/TEX/texas-rangers/schedule/',
+    'CUBS': 'https://www.cbssports.com/mlb/teams/CHC/chicago-cubs/schedule/',
+    'REDS': 'https://www.cbssports.com/mlb/teams/CIN/cincinnati-reds/schedule/',
+    'BREWERS': 'https://www.cbssports.com/mlb/teams/MIL/milwaukee-brewers/schedule/',
+    'PIRATES': 'https://www.cbssports.com/mlb/teams/PIT/pittsburgh-pirates/schedule/',
+    'CARDINALS': 'https://www.cbssports.com/mlb/teams/STL/st-louis-cardinals/schedule/',
+    'BRAVES': 'https://www.cbssports.com/mlb/teams/ATL/atlanta-braves/schedule/',
+    'MARLINS': 'https://www.cbssports.com/mlb/teams/MIA/miami-marlins/schedule/',
+    'METS': 'https://www.cbssports.com/mlb/teams/NYM/new-york-mets/schedule/',
+    'PHILLIES': 'https://www.cbssports.com/mlb/teams/PHI/philadelphia-phillies/schedule/',
+    'NATIONALS': 'https://www.cbssports.com/mlb/teams/WAS/washington-nationals/schedule/',
+    'DIAMONDBACKS': 'https://www.cbssports.com/mlb/teams/ARI/arizona-diamondbacks/schedule/',
+    'ROCKIES': 'https://www.cbssports.com/mlb/teams/COL/colorado-rockies/schedule/',
+    'DODGERS': 'https://www.cbssports.com/mlb/teams/LAD/los-angeles-dodgers/schedule/',
+    'PADRES': 'https://www.cbssports.com/mlb/teams/SD/san-diego-padres/schedule/',
+    'GIANTS': 'https://www.cbssports.com/mlb/teams/SF/san-francisco-giants/schedule/'
+}
