@@ -1,9 +1,9 @@
 #! /usr/bin/env python3 
 # baseballUpdates.py - Texts my phone live updates on the padres baseball game.
 
-import bs4, time, textMyself, html5lib, getSchedule, datetime, re, teamSchedules, teamPages
-import threading
-import chromedriver_binary
+import threading, time, re, datetime, chromedriver_binary
+from textMyself import textmyself
+from getSchedule import getSchedule
 from teamSchedules import teamSchedule
 from teamPages import teamPage
 from selenium import webdriver
@@ -18,22 +18,6 @@ from selenium.common.exceptions import WebDriverException
 # StaleElementReferenceException thrown if the page refreshes between 
 # getting the element and 'get_attribute'.
 # WebDriverException thrown if the page reaches an error (not loadable).
-
-def getScheduleURL(team):
-    """
-    param team: the team to track.
-    return: the URL to the team's schedule from
-    https://www.cbssports.com/mlb/teams
-    """
-    return teamSchedule.get(team, None)
-
-def getTeamURL(team):
-    """
-    param: the team to track.
-    return: the URL to the team's homepage from
-    https://www.mlb.com
-    """
-    return teamPage.get(team, None)
 
 def launchBrowser(url):
     """
@@ -291,7 +275,7 @@ def textPlay(homeTeam, home_runs, awayTeam, away_runs, playInning, play):
     param: the play.
     """
     message = playInning + ': ' + play + '\n\n' + homeTeam + ': ' + home_runs + ' ' + awayTeam + ': ' + away_runs
-    textMyself.textmyself(message)
+    textmyself(message)
 
 def textInningScore(inning, homeTeam, home_runs, awayTeam, away_runs):
     """
@@ -303,7 +287,7 @@ def textInningScore(inning, homeTeam, home_runs, awayTeam, away_runs):
     param awayRuns: the current runs scored by the away team.
     """
     message = 'End ' + inning + ':\n' + homeTeam + ': ' + home_runs + ' ' + awayTeam + ': ' + away_runs
-    textMyself.textmyself(message)
+    textmyself(message)
 
 def textFinalScore(homeTeam, home_runs, awayTeam, away_runs):
     """
@@ -314,16 +298,16 @@ def textFinalScore(homeTeam, home_runs, awayTeam, away_runs):
     param awayRuns: the current runs scored by the away team.
     """
     message = 'Final\n' + homeTeam + ': ' + home_runs + ' ' + awayTeam + ': ' + away_runs
-    textMyself.textmyself(message)
+    textmyself(message)
 
 def main():
     scheduleURL, teamURL = None, None
     while not scheduleURL and not teamURL:
         team = input('Enter a team to track (e.g. padres, yankees, etc.): ').strip().upper()
-        scheduleURL = getScheduleURL(team)
-        teamURL = getTeamURL(team)
+        scheduleURL = teamSchedule.get(team, None)
+        teamURL = teamPage.get(team, None)
 
-    schedule = getSchedule.getShedule(scheduleURL)
+    schedule = getSchedule(scheduleURL)
 
     while schedule:
         currentDate = datetime.datetime.now()
@@ -335,8 +319,6 @@ def main():
             time.sleep(timeUntilStart.total_seconds())
 
         browser = launchBrowser(teamURL)
-
-        time.sleep(20) # Wait for pop up to go away
 
         # Check if the game is postponed.
         isPPDSelector = 'li.mlb-scores__list-item.mlb-scores__list-item--game:last-of-type \
@@ -350,7 +332,7 @@ div.g5-component--mlb-scores__MIG__versus--text'
         except StaleElementReferenceException:
             isPPD = isTextPresent(browser, isPPDSelector).strip().upper()
         
-        if isPPD == 'PPD':
+        if isPPD == 'PPD': #need to delete game from
             continue
 
         # Selects and clicks 'Gameday' link
@@ -406,6 +388,7 @@ args=(homeTeam, home_runs, awayTeam, away_runs, playInning, play,))
                     thread.start()
                     thread.join()
                     plays.add(play)
+
             endOfInning = isInningOver(browser)
 
             # If the inning is over, check if the game is over and text the user the current score.
